@@ -21,3 +21,5 @@ Imports:
 Suggests:
     htmlTable
 RoxygenNote: 7.1.1
+URL: https://github.com/abestwyc/portR
+BugReports: https://github.com/abestwyc/portR/issues

@@ -71,4 +71,5 @@ crs_corr <- function(DT, Date, NoUse, Use) {
   dt1
 }
 
+# we have to do this...
 .SD = NULL

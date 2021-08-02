@@ -43,7 +43,7 @@
 #' @importFrom stats sd
 #'
 #' @export
-crs_sum <- function(DT, Use, NoUse, Date) {
+crs_sum <- function(DT, Date, NoUse, Use) {
   .N = sta = N = NULL
   stopifnot("Cannot use two parameters at the same time!" = (missing(NoUse) + missing(Use)) == 1)
   if (missing(Use)) {

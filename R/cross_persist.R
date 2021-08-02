@@ -49,6 +49,7 @@
 #'
 #' @export
 crs_pers <- function(DT, Date, Id, Var, Lag) {
+  nms_check(DT, crs_pers)
   dt <- setDT(copy(DT))
   Lags <- paste0("L", Lag)
   persis1 <- function(DT, Var) {

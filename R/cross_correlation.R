@@ -50,6 +50,7 @@
 #'
 #' @export
 crs_corr <- function(DT, Date, NoUse, Use) {
+  nms_check(DT, crs_corr)
   dt <- setDT(copy(DT))
   cor2 <- function(x) {
     cor_p <- cor(x, use = "na.or.complete", method = "pearson")

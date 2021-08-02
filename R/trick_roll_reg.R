@@ -68,6 +68,7 @@
 #'
 #' @export
 roll_reg <- function(DT, Y, Xs, Group, Width, MinObs, FUN, ...) {
+  nms_check(DT, roll_reg)
   `_grps` = .N = NULL
   dt <- dropnas(DT, Group)
   setorderv(dt, Group)

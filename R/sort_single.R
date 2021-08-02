@@ -73,6 +73,7 @@ crs_port <- function(DT,
                      Newey = T,
                      GroupN = 5,
                      Detail = F) {
+  nms_check(DT, crs_port)
   rank1 = temp_date = ret_H = ret_L = NULL
   dt <- dropnas(DT, c(LHS, RHS, Date, Weight, Risk))
   dt1 <-

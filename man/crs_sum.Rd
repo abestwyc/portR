@@ -4,17 +4,17 @@
 \alias{crs_sum}
 \title{Cross-section Summary}
 \usage{
-crs_sum(DT, Use, NoUse, Date)
+crs_sum(DT, Date, NoUse, Use)
 }
 \arguments{
 \item{DT}{A data.frame or data.table, contains all data.}
 
-\item{Use}{Character vector, reverse of NoUse, some variables we care. Can not use with
-parameter NoUse.}
+\item{Date}{A single character, variable name which indicate cross-section.}
 
 \item{NoUse}{Character vector, some variables we don't care (including all character variables).}
 
-\item{Date}{A single character, variable name which indicate cross-section.}
+\item{Use}{Character vector, reverse of NoUse, some variables we care. Can not use with
+parameter NoUse.}
 }
 \value{
 A data.table have 15 columns, for example "Observations" / "Missings", etc.

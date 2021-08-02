@@ -80,6 +80,7 @@ crs_port2 <-
            Newey = T,
            Independent = F,
            GroupN = c(3, 5)) {
+    nms_check(DT, crs_port2)
     rank1 = rank2 = `_tempD` = ret_H = ret_L = NULL
     stopifnot("Length of GroupN must equal to 2." = length(GroupN) == 2)
     dt <-

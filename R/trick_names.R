@@ -22,16 +22,16 @@
 #' @examples
 #' names(stock)
 #' # we want to get all variable names without "factor1" and "factor2"
-#' use(DT = stock, NoUse = c("factor1", "factor2"), Regex = F)
+#' use(DT = stock, NoUse = c("factor1", "factor2"), Regex = FALSE)
 #' # which is equivalent to following
-#' use(DT = stock, NoUse = "^fac", Regex = T)
+#' use(DT = stock, NoUse = "^fac", Regex = TRUE)
 #'
 #' @export
-use <- function(DT, NoUse, Regex = F){
+use <- function(DT, NoUse, Regex = FALSE){
   nm <- names(DT)
   if (!Regex) {
     nm[!nm %in% NoUse]
   } else {
-    grep(NoUse, nm, invert = T, value = T)
+    grep(pattern = NoUse, x = nm, invert = TRUE, value = TRUE)
   }
 }

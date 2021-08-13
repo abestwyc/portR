@@ -4,7 +4,7 @@ output: html_document
 
 ## portR
 
-version 0.1.0
+version 0.1.1
 
 R CMD check: 0 errors ✓ \| 0 warnings ✓ \| 0 note ✓
 
@@ -72,4 +72,5 @@ If you encounter a clear bug, please file an issue with a minimal reproducible e
 
 For questions and other discussion, please email or qq me.
 
-email: [hnnhwyc\@163.com](mailto:hnnhwyc@163.com) qq: 1781418227
+* email: [hnnhwyc\@163.com](mailto:hnnhwyc@163.com) 
+* qq: 1781418227

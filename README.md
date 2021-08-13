@@ -1,6 +1,10 @@
+---
+output: html_document
+---
+
 ## portR
 
-version 0.1.0
+version 0.1.1
 
 R CMD check: 0 errors ✓ \| 0 warnings ✓ \| 0 note ✓
 
@@ -37,6 +41,12 @@ devtools::install_github("abestwyc/portR")
 
 It is worth mentioning that portR have passed the `R CMD Check` with 0 errors, 0 warnings and 0 notes, I believe that you can install it directly on CRAN soon.
 
+## Warning
+
+Before using portR, please check the variable names in your data, your variable names cannot be the same as the parameter name!!! If the variable name is the same as parameter name, the result may be wrong or unpredictable.
+
+The reason why this warning exists is that portR is written almost entirely using `data.table`, which contains a lot of non-standard operations. And the non-standard operations will have unpredictable side effects on the lexical scope and environment.
+
 ## Usage
 
 ```{r, message = FALSE}
@@ -60,4 +70,7 @@ crs_reg(stock, "return", c("size", "explain"), "month")
 
 If you encounter a clear bug, please file an issue with a minimal reproducible example on [GitHub](https://github.com/abestwyc/portR/issues).
 
-For questions and other discussion, please [Email](hnnhwyc@163.com) me.
+For questions and other discussion, please email or qq me.
+
+* email: [hnnhwyc\@163.com](mailto:hnnhwyc@163.com) 
+* qq: 1781418227

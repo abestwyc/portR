@@ -67,10 +67,14 @@ crs_corr <- function(DT, Date, NoUse, Use) {
   } else {
     stop("Please specify which columes would be calculated.")
   }
+  rmean <- function(x){
+    res0 <- mean(x, na.rm  = TRUE)
+    round(res0, digits = 3)
+  }
   dt1 <-
-    dt[, cor2(.SD), by = Date, .SDcols = cals][, lapply(.SD, mean, na.rm = T), by = "rn", .SDcols = cals]
+    dt[, cor2(.SD), by = Date, .SDcols = cals][, lapply(.SD, rmean), by = "rn", .SDcols = cals]
   dt1
 }
 
-# we have to do this...
+# we have to do this to avoid R-CMD check
 .SD = NULL

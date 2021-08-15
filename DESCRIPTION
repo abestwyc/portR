@@ -17,7 +17,8 @@ Imports:
     dplyr,
     magrittr,
     plyr,
-    e1071
+    e1071,
+    bettermc
 Suggests:
     htmlTable
 RoxygenNote: 7.1.1

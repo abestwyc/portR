@@ -50,6 +50,8 @@
 #'
 #' @export
 crs_corr <- function(DT, Date, NoUse, Use) {
+  # we have to do this to avoid R-CMD check
+  .SD = NULL
   nms_check(DT, crs_corr)
   dt <- setDT(copy(DT))
   cor2 <- function(x) {
@@ -75,6 +77,3 @@ crs_corr <- function(DT, Date, NoUse, Use) {
     dt[, cor2(.SD), by = Date, .SDcols = cals][, lapply(.SD, rmean), by = "rn", .SDcols = cals]
   dt1
 }
-
-# we have to do this to avoid R-CMD check
-.SD = NULL

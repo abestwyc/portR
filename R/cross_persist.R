@@ -67,3 +67,4 @@ crs_pers <- function(DT, Date, Id, Var, Lag) {
     as.data.table(c(list(Lag = Lags), lapply(Var, persis1, DT = dt)))
   res
 }
+.SD <-  NULL

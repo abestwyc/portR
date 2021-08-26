@@ -1,7 +1,7 @@
 Package: portR
 Type: Package
 Title: Empirical Finance Tools
-Version: 0.1.1.9000
+Version: 0.1.2
 Authors@R: person("Yichuan", email = "hnnhwyc@163.com", role = c("aut", "cre"))
 Description: Some simple but very useful functions for Empirical Asset Pricing studies 
     or Anomaly Studies. Including Single sort, Double sort, Fama-MacBeth (1973) regression 
@@ -18,7 +18,8 @@ Imports:
     magrittr,
     plyr,
     e1071,
-    bettermc
+    bettermc,
+    readxl
 Suggests:
     htmlTable
 RoxygenNote: 7.1.1

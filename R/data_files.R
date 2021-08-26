@@ -11,6 +11,9 @@
 #' @param Regex
 #' Regular expression, the pattern of files you want read.
 #'
+#' @param FileType
+#' Single character, the file type of these data, usually txt / csv.
+#'
 #' @param Parallel
 #' Logical, if TRUE then we will use a multi-core algorithm to read
 #' files. Default FALSE, because it also takes some time to allocate
@@ -26,19 +29,29 @@
 #' \code{\link[data.table]{fread}}
 #'
 #' @examples
-#' # files(Dir = "/Users/xxx/Data/Daily", Regex = "Daily", Parallel = F)
+#' # files(Dir = "/Users/xxx/Data/Daily", Regex = "Daily", FileType = "txt", Parallel = F)
 #'
 #' @importFrom data.table rbindlist
 #' @importFrom data.table fread
 #' @importFrom bettermc mclapply
+#' @importFrom readxl read_excel
 #'
 #' @export
-files <- function(Dir, Regex, Parallel = FALSE, ...) {
+files <- function(Dir, Regex, FileType = "txt", Parallel = FALSE, ...) {
   fl_nm <- list.files(Dir, pattern = Regex, full.names = TRUE)
-  if (Parallel) {
-    fls <- mclapply(fl_nm, fread, ...)
+  if (FileType %in% c("txt", "csv")) {
+    fun <- data.table::fread
+  } else if (tolower(FileType) == "rds") {
+    fun <- base::readRDS
+  } else if (FileType %in% c("xls", "xlsx")) {
+    fun <- readxl::read_excel
   } else {
-    fls <- lapply(fl_nm, fread, ...)
+    stop("Sorry, we currently do not support importing data of this type")
   }
-  rbindlist(fls, use.names = TRUE)
+  if (Parallel) {
+    fls <- bettermc::mclapply(fl_nm, fun, ...)
+  } else {
+    fls <- lapply(fl_nm, fun, ...)
+  }
+  data.table::rbindlist(fls, use.names = TRUE)
 }

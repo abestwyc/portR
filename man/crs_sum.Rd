@@ -4,7 +4,7 @@
 \alias{crs_sum}
 \title{Cross-section Summary}
 \usage{
-crs_sum(DT, Date, NoUse, Use)
+crs_sum(DT, Date, NoUse, Use, Details = FALSE)
 }
 \arguments{
 \item{DT}{A data.frame or data.table, contains all data.}
@@ -15,6 +15,8 @@ crs_sum(DT, Date, NoUse, Use)
 
 \item{Use}{Character vector, reverse of NoUse, some variables we care. Can not use with
 parameter NoUse.}
+
+\item{Details}{Logical, should the function report the summary statistics every cross-section.}
 }
 \value{
 A data.table have 15 columns, for example "Observations" / "Missings", etc.

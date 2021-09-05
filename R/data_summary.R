@@ -26,6 +26,9 @@
 #' Character vector, reverse of NoUse, some variables we care. Can not use with
 #' parameter NoUse.
 #'
+#' @param Details
+#' Logical, should the function report the summary statistics every cross-section.
+#'
 #' @return
 #' A data.table have 15 columns, for example "Observations" / "Missings", etc.
 #' Maybe we can use \code{t(...)} to make it more easy to present.
@@ -43,7 +46,7 @@
 #' @importFrom stats sd
 #'
 #' @export
-crs_sum <- function(DT, Date, NoUse, Use) {
+crs_sum <- function(DT, Date, NoUse, Use, Details = FALSE) {
   .N = sta = N = NULL
   stopifnot("Cannot use two parameters at the same time!" = (missing(NoUse) + missing(Use)) == 1)
   if (missing(Use)) {
@@ -113,11 +116,19 @@ crs_sum <- function(DT, Date, NoUse, Use) {
     }
     z
   }
-  sum1 <-
-    dt[, c(list(sta = sta_nm), lapply(.SD, cal)), by = Date][, c(.N, lapply(.SD, function(x)
-      round(mean(x), 3))),
-      by = sta,
-      .SDcols = !Date][, lapply(.SD, function(x)
-        time_n(N, x, 2))][, N := NULL]
+  if(!Details)
+  {
+    sum1 <-
+      dt[, c(list(sta = sta_nm), lapply(.SD, cal)), by = Date][, c(.N, lapply(.SD, function(x)
+        round(mean(x), 3))),
+        by = sta,
+        .SDcols = !Date][, lapply(.SD, function(x)
+          time_n(N, x, 2))][, N := NULL]
+  }
+  else
+  {
+    sum1 <-
+      dt[, c(list(sta = sta_nm), lapply(.SD, cal)), by = Date]
+  }
   sum1[]
 }

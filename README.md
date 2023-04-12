@@ -70,7 +70,6 @@ crs_reg(stock, "return", c("size", "explain"), "month")
 
 If you encounter a clear bug, please file an issue with a minimal reproducible example on [GitHub](https://github.com/abestwyc/portR/issues).
 
-For questions and other discussion, please email or qq me.
+For questions and other discussion, just email me.
 
-* email: [hnnhwyc\@163.com](mailto:hnnhwyc@163.com) 
-* qq: 1781418227
+* email: [weiyc21\@mails.tsinghua.edu.cn](mailto:weiyc21@mails.tsinghua.edu.cn) 

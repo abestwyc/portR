@@ -1,8 +1,7 @@
----
-output: html_document
----
+- ***This project is no longer maintained.***
+- ***This project on empirical asset pricing is outdated and uses methods that were more popular in 90s-10s.***
 
-## portR
+# port(folio)R
 
 version 0.1.1
 
